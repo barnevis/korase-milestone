@@ -1,0 +1,181 @@
+.milestone{
+  position: relative;
+  /* padding: 160px 0 315px 0; */
+  white-space: nowrap;
+  direction: rtl !important;
+}
+
+.milestone *{
+  margin: 0;
+  text-indent: 0 !important;
+}
+
+.milestone-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  margin: 0 35px;
+  box-sizing: border-box;
+}
+
+.milestone-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #888;
+  z-index: 1;
+}
+
+.milestone-event {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  height: 60px; 
+}
+
+.milestone-item-content{
+  z-index: 10;
+}
+
+.reverse{
+  direction: ltr;
+}
+
+.reverse .milestone-item-content .milestone-year{
+  text-align: left;
+}
+
+.top{
+  top: 4px;
+}
+.bottom{
+  align-items: end;
+}
+
+.milestone-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  justify-content: center;
+}
+
+
+
+.milestone-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #333;
+  z-index: 0;
+}
+
+.top-container {
+  position: absolute;
+  top: calc(50% - 52px);
+  align-items: start;
+  width: 100%;
+  left: 0;
+}
+
+.bottom-container {
+  position: absolute;
+  top: calc(50% - 6px);
+  align-items: flex-end;
+  width: 100%;
+  left: 0;
+}
+
+
+
+/* === */
+
+.milestone-item-arrow{
+  position: relative;
+  width: 18px;
+  height: 100%;
+}
+
+.milestone-connector {
+  width: 2px;
+  min-height: 40px;
+  background: #777;
+  margin: 0 auto;
+  z-index: 0;
+  height: 100%;
+}
+.milestone-circle {
+  width: 14px;
+  height: 14px;
+  background: #d4b483;
+  border: 2px solid #444;
+  border-radius: 50%;
+  z-index: 3;
+  position: absolute;
+}
+
+.top  .milestone-circle {
+  bottom: 0;
+}
+
+.bottom  .milestone-circle {
+  top: 0;
+  
+}
+
+.bottom .milestone-item-content {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* ----- */
+
+ .milestone-item-content .milestone-year {
+  margin: 0;
+  font-size: 16px;
+  height: 18px;
+  font-weight: bold;
+  /* color: #ccc;   */
+  direction: ltr !important;
+  text-align: right;
+}
+
+ .milestone-item-content .milestone-description {
+  font-size: 11px;
+  max-width: 90px;
+  overflow-wrap: break-word;
+  white-space: normal;
+  position: relative;
+}
+.milestone-item-content .milestone-description .milestone-title {
+  z-index: 10000; 
+  position: relative;
+}
+.milestone-item-content .milestone-description .milestone-border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-text-stroke: 5px #fff
+}
+
+.dark .milestone-item-content .milestone-description .milestone-border {
+  -webkit-text-stroke: 5px var(--darkreader-background, #fff);
+}
+
+.milestone-item-content .milestone-description .milestone-border a{
+  color: white !important;
+}
+
+@media (max-width: 600px) {
+  .milestone-event {
+    margin: 0 10px;
+  }
+  .milestone-description {
+    max-width: 150px;
+  }
+}
