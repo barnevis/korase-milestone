@@ -1,17 +1,5 @@
 import "./milestone-plugin.css";
-
-async function getMarkdownToOutput() {
-  if (typeof window !== "undefined" && window.markdownParser && window.markdownParser.markdownToOutput) {
-    console.log("Using global Shahneshan");
-    return window.markdownParser.markdownToOutput;
-  } else {
-    console.log("Importing Shahneshan as an ES module");
-    const { markdownToOutput } = await import("shahneshan");
-    return markdownToOutput;
-  }
-}
-
-const marked = await getMarkdownToOutput();
+import { markdownToOutput as marked } from "shahneshan";
 
 let maxHeight = 0;
 const adjustment = 63;
@@ -160,7 +148,6 @@ const milestonePlugin = {
   beforeParse: (text) => {
     let events = [];
     let timelineData = [];
-
     const regex = /\.{3}رویدادنامه([\s\S]*?)\.{3}/g;
     const matches = text.match(regex);
 
